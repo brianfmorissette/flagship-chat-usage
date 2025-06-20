@@ -5,6 +5,10 @@ st.set_page_config(layout="wide")
 
 st.title("User Usage Data")
 
+if st.sidebar.button("Load / Refresh Data", type="primary"):
+    st.cache_data.clear()
+    st.sidebar.success("Cache cleared. Data will be reloaded from S3.")
+
 report_type = st.selectbox("Select Report Type", ["Weekly", "Monthly"])
 
 if st.button("Load Data"):
